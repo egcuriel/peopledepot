@@ -28,6 +28,7 @@ from ..models import ModernJobTitle
 from ..models import Organization
 from ..models import PermissionType
 from ..models import PracticeArea
+from ..models import PracticeEvent
 from ..models import ProgramArea
 from ..models import Project
 from ..models import ProjectStackElementXref
@@ -66,6 +67,7 @@ from .serializers import ModernJobTitleSerializer
 from .serializers import OrganizationSerializer
 from .serializers import PermissionTypeSerializer
 from .serializers import PracticeAreaSerializer
+from .serializers import PracticeEventSerializer
 from .serializers import ProgramAreaSerializer
 from .serializers import ProjectSerializer
 from .serializers import ProjectStackElementXrefSerializer
@@ -710,3 +712,8 @@ class WinTypeViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = WinType.objects.all().order_by("name")
     serializer_class = WinTypeSerializer
+
+
+class PracticeEventViewSet(viewsets.ModelViewSet):
+    queryset = PracticeEvent.objects.all()
+    serializer_class = PracticeEventSerializer

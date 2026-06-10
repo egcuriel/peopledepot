@@ -15,6 +15,7 @@ from core.models import ModernJobTitle
 from core.models import Organization
 from core.models import PermissionType
 from core.models import PracticeArea
+from core.models import PracticeEvent
 from core.models import ProgramArea
 from core.models import Project
 from core.models import ProjectStackElementXref
@@ -694,3 +695,9 @@ class WinTypeSerializer(serializers.ModelSerializer):
         model = WinType
         fields = ("uuid", "name", "display_text", "created_at", "updated_at")
         read_only_fields = ("uuid", "created_at", "updated_at")
+
+
+class PracticeEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PracticeEvent
+        fields = "__all__"

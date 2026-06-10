@@ -15,6 +15,7 @@ from .views import ModernJobTitleViewSet
 from .views import OrganizationViewSet
 from .views import PermissionTypeViewSet
 from .views import PracticeAreaViewSet
+from .views import PracticeEventViewSet
 from .views import ProgramAreaViewSet
 from .views import ProjectStackElementXrefViewSet
 from .views import ProjectStatusViewSet
@@ -102,6 +103,7 @@ router.register(
 )
 router.register(r"wins", WinViewSet, basename="win")
 router.register(r"win-types", WinTypeViewSet, basename="win-type")
+router.register(r"practice-events", PracticeEventViewSet, basename="practice-event")
 
 urlpatterns = [
     path("me/", UserProfileAPIView.as_view(), name="my_profile"),

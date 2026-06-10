@@ -20,6 +20,7 @@ from .models import ModernJobTitle
 from .models import Organization
 from .models import PermissionType
 from .models import PracticeArea
+from .models import PracticeEvent
 from .models import ProgramArea
 from .models import Project
 from .models import ProjectStackElementXref
@@ -429,3 +430,12 @@ class WinAdmin(admin.ModelAdmin):
 @admin.register(WinType)
 class WinTypeAdmin(admin.ModelAdmin):
     list_display = ("name", "display_text")
+
+
+@admin.register(PracticeEvent)
+class PracticeEventAdmin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "start_time",
+        "duration_in_min",
+    )
