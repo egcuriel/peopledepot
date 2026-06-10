@@ -2,7 +2,6 @@
   "name": "Django & Postgres Stack",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "web",
-  // This must match the volume mapping in docker-compose.yml
   "workspaceFolder": "/usr/src/app",
   "customizations": {
     "vscode": {
