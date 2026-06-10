@@ -6,6 +6,8 @@ from django.db import transaction
 from django.db.models.deletion import ProtectedError
 from django.utils import timezone
 
+from core.models import PracticeEvent
+
 from ..models import Event
 from ..models import ModernJobTitle
 from ..models import PracticeArea
@@ -832,3 +834,30 @@ def test_win_type_str(win_type):
 def test_win_type_fields(win_type):
     assert win_type.name == "funding"
     assert win_type.display_text == "Funding / Grant awarded"
+
+
+def test_practice_event_model(project):
+    from datetime import datetime
+
+    payload = {
+        "name": "test practice event",
+        "start_time": datetime(2023, 1, 1, 2, 34),
+        "duration_in_min": 60,
+        "video_conference_url": "https://zoom.com/mtg/1234",
+        "additional_info": "long description",
+        "project": project,
+    }
+
+    practice_event = PracticeEvent(**payload)
+
+    assert practice_event.name == payload["name"]
+    assert practice_event.start_time == payload["start_time"]
+    assert practice_event.duration_in_min == payload["duration_in_min"]
+    assert practice_event.video_conference_url == payload["video_conference_url"]
+    assert practice_event.additional_info == payload["additional_info"]
+    assert practice_event.project == payload["project"]
+    assert str(practice_event) == payload["name"]
+
+
+def test_practice_event(practice_event):
+    assert str(practice_event) == "Test Practice Event"

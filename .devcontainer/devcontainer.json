@@ -1,0 +1,19 @@
+{
+  "name": "Django & Postgres Stack",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  // This must match the volume mapping in docker-compose.yml
+  "workspaceFolder": "/usr/src/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "batisteo.vscode-django",
+        "mtxr.sqltools"
+      ]
+    }
+  },
+  "forwardPorts": [8000, 5432],
+  "postCreateCommand": "python manage.py migrate"
+}

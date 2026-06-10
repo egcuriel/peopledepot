@@ -18,6 +18,7 @@ from ..models import ModernJobTitle
 from ..models import Organization
 from ..models import PermissionType
 from ..models import PracticeArea
+from ..models import PracticeEvent
 from ..models import ProgramArea
 from ..models import Project
 from ..models import ProjectStackElementXref
@@ -510,3 +511,8 @@ def win_type():
         name="funding",
         display_text="Funding / Grant awarded",
     )
+
+
+@pytest.fixture
+def practice_event(project):
+    return PracticeEvent.objects.create(name="Test Practice Event", project=project)
